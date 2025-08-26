@@ -16,7 +16,9 @@ A responsive React + TypeScript + Vite application that fetches user data from a
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/finology-test.git
+git clone https://github.com/edoGultom/finology-test.git
 cd finology-test
 cp .env.example .env
+run npm install
+run npm run dev
 ```
