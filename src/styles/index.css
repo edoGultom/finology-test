@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+    --background: hsl(240 20% 98%);
+    --primary: hsl(217 91% 60%);
+    --foreground: hsl(240 10% 3.9%);
+    --primary-foreground: hsl(0 0% 98%);
+    --gradient-primary: linear-gradient(135deg,
+            hsl(217 91% 60%),
+            hsl(217 91% 70%));
+    --gradient-background: linear-gradient(135deg, hsl(240 10% 3.9%), hsl(240 8% 8%));
+    --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(240 10% 98%));
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(240 10% 3.9%);
+    --border: hsl(240 5.9% 90%);
+    --shadow-card: 0 4px 6px -1px hsl(240 10% 3.9% / 0.1), 0 2px 4px -1px hsl(240 10% 3.9% / 0.06);
+    --shadow-card-hover: 0 10px 15px -3px hsl(240 10% 3.9% / 0.1), 0 4px 6px -2px hsl(240 10% 3.9% / 0.05);
+    --shadow-filter: 0 1px 3px hsl(0 0% 0% / 0.3), 0 1px 2px hsl(0 0% 0% / 0.4);
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(240 10% 3.9%);
+    --muted: hsl(240 4.8% 95.9%);
+    --muted-foreground: hsl(240 3.8% 46.1%);
+}
+
+@theme inline {
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-card-foreground: var(--card-foreground);
+    --text-foreground:var(--foreground);
+    --color-card:var(--card);
+    --color-background:var(--background);
+    --color-foreground:var(--foreground);
+    --color-gradient-background:var(--gradient-background);
+    --color-gradient-card:var(--gradient-card);
+    --color-border:var(--border);
+    --color-popover:var(--popover);
+    --color-popover-foreground:var(--popover-foreground);
+    --color-muted:var(--muted);
+    --color-muted-foreground:var(--muted-foreground);
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply text-foreground;
+        background: var(--gradient-background);
+        min-height: 100vh;
+    }
+}
+
+/* dots loader  */
+.dot {
+    opacity: 0;
+    animation: dotFadeInOut 1.5s infinite;
+}
+
+@keyframes dotFadeInOut {
+
+    0%,
+    100% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+#dot1 {
+    animation-delay: 0.5s;
+}
+
+#dot2 {
+    animation-delay: 0.6s;
+}
+
+#dot3 {
+    animation-delay: 0.7s;
+}
+
+/* end dots loader*/
