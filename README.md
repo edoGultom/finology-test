@@ -7,7 +7,7 @@ A responsive React + TypeScript + Vite application that fetches user data from a
 - [Vite](https://vitejs.dev/) + React + TypeScript
 - [TailwindCSS](https://tailwindcss.com/) for styling
 - Functional components + hooks
-- Custom hooks for data fetching (`useUsers`)
+- Custom hooks for data fetching
 
 ---
 
