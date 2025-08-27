@@ -27,28 +27,28 @@ export const UserCard = ({ user }: UserCardProps) => {
 
         {/* Contact Details */}
         <div className="space-y-3">
-          <div className="flex items-center space-x-3 text-sm">
-            <Mail className="w-4 h-4 text-muted-foreground" />
-            <span className="text-card-foreground">{user.email}</span>
+          <div className="flex items-center space-x-3 text-sm ">
+            <Mail className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">{user.email}</span>
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <MapPin className="w-4 h-4 text-muted-foreground" />
-            <span className="text-card-foreground">{user.address.city}</span>
+            <MapPin className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">{user.address.city}</span>
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <Building2 className="w-4 h-4 text-muted-foreground" />
-            <span className="text-card-foreground">{user.company.name}</span>
+            <Building2 className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">{user.company.name}</span>
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <Phone className="w-4 h-4 text-muted-foreground" />
-            <span className="text-card-foreground">{user.phone}</span>
+            <Phone className="w-4 h-4 text-primary" />
+            <span className="text-muted-foreground">{user.phone}</span>
           </div>
 
           <div className="flex items-center space-x-3 text-sm">
-            <Globe className="w-4 h-4 text-muted-foreground" />
+            <Globe className="w-4 h-4 text-primary" />
             <a
               href={`https://${user.website}`}
               target="_blank"

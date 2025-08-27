@@ -1,4 +1,4 @@
-const Loaader: React.FC = () => {
+const Loader: React.FC = () => {
   return (
     <div className="flex-1   flex justify-center items-center">
       <div className=" w-[130px] h-[130px] flex flex-col gap-2 items-center justify-center bg-[#212121] rounded-xl">
@@ -39,4 +39,4 @@ const Loaader: React.FC = () => {
   );
 };
 
-export default Loaader;
+export default Loader;

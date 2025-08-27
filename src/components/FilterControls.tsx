@@ -1,5 +1,6 @@
 import { Filter, Search, X } from "lucide-react";
-import type { IFilterControlsProps } from "../types/filters";
+import { useEffect, useState } from "react";
+import type { IFilterState } from "../types/filters";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import {
@@ -10,20 +11,38 @@ import {
   SelectValue,
 } from "./ui/select";
 
+interface IFilterControlsProps {
+  filters: IFilterState;
+  onFiltersChange: (filters: IFilterState) => void;
+  cities: string[];
+  companies: string[];
+  isLoading?: boolean;
+}
 const FilterControls: React.FC<IFilterControlsProps> = ({
-  searchTerm,
-  onSearchChange,
-  selectedCity,
-  onCityChange,
-  selectedCompany,
-  onCompanyChange,
+  filters,
+  onFiltersChange,
   cities,
   companies,
-  onClearFilters,
+  isLoading = false,
 }) => {
-  const hasActiveFilters =
-    searchTerm || selectedCity !== "all" || selectedCompany !== "all";
-  console.log({ searchTerm, selectedCity, selectedCompany });
+  const [localSearch, setLocalSearch] = useState(filters.search);
+
+  // Debounced search
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      onFiltersChange({ ...filters, search: localSearch });
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [filters, localSearch, onFiltersChange]);
+
+  const handleClearFilters = () => {
+    setLocalSearch("");
+    onFiltersChange({ search: "", city: "all", company: "all" });
+  };
+
+  const hasActiveFilters = filters.search || filters.city || filters.company;
+
   return (
     <div className="filter-container bg-card/80 border border-border backdrop-blur-sm rounded-lg  p-6 shadow-[var(--shadow-filter)]">
       <div className="flex items-center space-x-2 mb-4">
@@ -35,7 +54,7 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
           <Button
             variant="ghost"
             size="sm"
-            onClick={onClearFilters}
+            onClick={handleClearFilters}
             className="ml-auto cursor-pointer"
           >
             <X className="w-4 h-4 mr-2" />
@@ -50,13 +69,20 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
           <Input
             type="text"
             placeholder="Search by user name..."
-            value={searchTerm}
-            onChange={(e) => onSearchChange(e.target.value)}
+            value={localSearch}
+            onChange={(e) => setLocalSearch(e.target.value)}
+            disabled={isLoading}
             className="bg-background/50 border border-border transition-all duration-200 pl-10"
           />
         </div>
         {/* City Filter */}
-        <Select value={selectedCity} onValueChange={onCityChange}>
+        <Select
+          value={filters.city}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, city: value })
+          }
+          disabled={isLoading}
+        >
           <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
             <SelectValue placeholder="Filter by city" />
           </SelectTrigger>
@@ -70,7 +96,13 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
           </SelectContent>
         </Select>
         {/* Company Filter */}
-        <Select value={selectedCompany} onValueChange={onCompanyChange}>
+        <Select
+          value={filters.company}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, company: value })
+          }
+          disabled={isLoading}
+        >
           <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
             <SelectValue placeholder="Filter by company" />
           </SelectTrigger>

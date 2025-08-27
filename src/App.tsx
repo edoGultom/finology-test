@@ -1,9 +1,8 @@
-// import UserList from "./components/UserList";
 import { Routes, Route } from "react-router-dom";
 import NotFound from "./pages/Notfound";
 import Layout from "./components/Layout";
 import TailwindIndicator from "./components/TailwindIndicator";
-import UserList from "./pages/UsersList";
+import Index from "./pages/Index";
 
 function App() {
   return (
@@ -12,7 +11,7 @@ function App() {
         {/* Wrapper */}
         <Route element={<Layout />}>
           {/* Homepage →  user list */}
-          <Route path="/" element={<UserList />} />
+          <Route path="/" element={<Index />} />
           {/* path not match → Not Found */}
           <Route path="*" element={<NotFound />} />
         </Route>
