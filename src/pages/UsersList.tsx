@@ -32,7 +32,7 @@ const UserList: React.FC = () => {
           <h1 className="text-4xl font-bold text-foreground">User Directory</h1>
         </div>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-          Browse and search through our users with filtering options
+          Discover and connect with team members
         </p>
       </div>
       {/* Filter Controls */}

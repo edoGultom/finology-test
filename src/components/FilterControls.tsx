@@ -29,11 +29,11 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
       <div className="flex items-center space-x-2 mb-4">
         <Filter className="w-5 h-5 text-primary" />
         <h2 className="text-lg font-semibold text-card-foreground">
-          Filter Users
+          Search & Filter
         </h2>
         {hasActiveFilters && (
           <Button
-            variant="outline"
+            variant="ghost"
             size="sm"
             onClick={onClearFilters}
             className="ml-auto cursor-pointer"
