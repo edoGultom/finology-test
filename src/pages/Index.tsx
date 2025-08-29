@@ -32,14 +32,14 @@ const Index: React.FC = () => {
             <div>
               <BlurText
                 text="User Directory"
-                delay={150}
+                delay={100}
                 animateBy="words"
                 direction="top"
                 className="text-3xl font-bold text-foreground"
               />
               <BlurText
                 text="Discover and connect with team members"
-                delay={150}
+                delay={100}
                 animateBy="words"
                 direction="top"
                 className="text-muted-foreground"

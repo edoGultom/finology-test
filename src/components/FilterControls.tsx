@@ -59,7 +59,7 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
 
         <BlurText
           text="Search & Filter"
-          delay={150}
+          delay={100}
           animateBy="words"
           direction="top"
           className="text-lg font-semibold text-card-foreground"
@@ -77,68 +77,62 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
           </Button>
         )}
       </div>
-      <FadeContent
-        blur={true}
-        duration={1000}
-        easing="ease-out"
-        initialOpacity={0}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Search Input */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Search by user name..."
-              value={localSearch}
-              onChange={(e) => setLocalSearch(e.target.value)}
-              disabled={isLoading}
-              className="bg-background/50 border border-border transition-all duration-200 pl-10"
-            />
-          </div>
 
-          {/* City Filter */}
-          <Select
-            value={filters.city}
-            onValueChange={(value) =>
-              onFiltersChange({ ...filters, city: value })
-            }
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Search Input */}
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+          <Input
+            type="text"
+            placeholder="Search by user name..."
+            value={localSearch}
+            onChange={(e) => setLocalSearch(e.target.value)}
             disabled={isLoading}
-          >
-            <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
-              <SelectValue placeholder="Filter by city" />
-            </SelectTrigger>
-            <SelectContent className="bg-popover border border-border">
-              <SelectItem value="all">All Cities</SelectItem>
-              {cities.map((city) => (
-                <SelectItem key={city} value={city}>
-                  {city}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          {/* Company Filter */}
-          <Select
-            value={filters.company}
-            onValueChange={(value) =>
-              onFiltersChange({ ...filters, company: value })
-            }
-            disabled={isLoading}
-          >
-            <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
-              <SelectValue placeholder="Filter by company" />
-            </SelectTrigger>
-            <SelectContent className="bg-popover border border-border">
-              <SelectItem value="all">All Companies</SelectItem>
-              {companies.map((company) => (
-                <SelectItem key={company} value={company}>
-                  {company}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
+            className="bg-background/50 border border-border transition-all duration-200 pl-10"
+          />
         </div>
-      </FadeContent>
+
+        {/* City Filter */}
+        <Select
+          value={filters.city}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, city: value })
+          }
+          disabled={isLoading}
+        >
+          <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
+            <SelectValue placeholder="Filter by city" />
+          </SelectTrigger>
+          <SelectContent className="bg-popover border border-border">
+            <SelectItem value="all">All Cities</SelectItem>
+            {cities.map((city) => (
+              <SelectItem key={city} value={city}>
+                {city}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+        {/* Company Filter */}
+        <Select
+          value={filters.company}
+          onValueChange={(value) =>
+            onFiltersChange({ ...filters, company: value })
+          }
+          disabled={isLoading}
+        >
+          <SelectTrigger className="bg-background/50 border border-border transition-all duration-200  cursor-pointer">
+            <SelectValue placeholder="Filter by company" />
+          </SelectTrigger>
+          <SelectContent className="bg-popover border border-border">
+            <SelectItem value="all">All Companies</SelectItem>
+            {companies.map((company) => (
+              <SelectItem key={company} value={company}>
+                {company}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
+      </div>
     </div>
   );
 };
