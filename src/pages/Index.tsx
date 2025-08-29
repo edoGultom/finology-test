@@ -94,20 +94,13 @@ const Index: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 ">
         <div className="space-y-6 ">
           {/* Search and Filters */}
-          <FadeContent
-            blur={true}
-            duration={1000}
-            easing="ease-out"
-            initialOpacity={0}
-          >
-            <FilterControls
-              filters={filters}
-              onFiltersChange={setFilters}
-              cities={cities}
-              companies={companies}
-              isLoading={isLoading}
-            />
-          </FadeContent>
+          <FilterControls
+            filters={filters}
+            onFiltersChange={setFilters}
+            cities={cities}
+            companies={companies}
+            isLoading={isLoading}
+          />
           {/* User Grid */}
           <UserGrid
             users={filteredUsers}
