@@ -19,5 +19,5 @@ A responsive React + TypeScript + Vite application that fetches user data from a
 ```bash
 git clone https://github.com/edoGultom/finology-test.git
 cd finology-test
-cp .env.example .env (Setup environment variables)
+cp .env.example .env
 ```
