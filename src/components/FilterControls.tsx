@@ -44,7 +44,7 @@ const FilterControls: React.FC<IFilterControlsProps> = ({
   const hasActiveFilters = filters.search || filters.city || filters.company;
 
   return (
-    <div className="filter-container bg-card/80 border border-border backdrop-blur-sm rounded-lg  p-6 shadow-[var(--shadow-filter)]">
+    <div className="filter-container">
       <div className="flex items-center space-x-2 mb-4">
         <Filter className="w-5 h-5 text-primary" />
         <h2 className="text-lg font-semibold text-card-foreground">

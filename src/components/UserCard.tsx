@@ -7,7 +7,7 @@ interface UserCardProps {
 
 export const UserCard = ({ user }: UserCardProps) => {
   return (
-    <div className="bg-card border border-border rounded-lg p-6 transition-all duration-200 group  shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-hover)] hover:transform hover:translate-y-[-2px]">
+    <div className="user-card group">
       <div className="flex flex-col space-y-4">
         {/* Header */}
         <div className="flex items-center space-x-3">

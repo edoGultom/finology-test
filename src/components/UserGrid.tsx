@@ -3,7 +3,8 @@ import type { IApiError } from "../types/error";
 import type { IUser } from "../types/user";
 import { ErrorMessage } from "./common/ErrorMessage";
 import Loader from "./common/Loader";
-import { UserCard } from "./UserCard";
+// import { UserCard } from "./UserCard";
+import AnimatedList from "./animations/AnimatedList";
 
 interface UserGridProps {
   users: IUser[];
@@ -44,10 +45,10 @@ export const UserGrid = ({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-      {users.map((user) => (
-        <UserCard key={user.id} user={user} />
-      ))}
-    </div>
+    <AnimatedList
+      items={users}
+      onItemSelect={(item, index) => console.log(item, index)}
+      displayScrollbar={true}
+    />
   );
 };
